@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Quiz - Healthy Horizon</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background: #4CAF50;
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+        }
+
+        nav {
+            background: #333;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1.1rem;
+        }
+
+        nav a:hover {
+            color: #4CAF50;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #4CAF50;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .question {
+            margin-bottom: 1.5rem;
+        }
+
+        .question p {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .options label {
+            display: block;
+            margin: 0.5rem 0;
+            font-size: 1rem;
+        }
+
+        .options input {
+            margin-right: 0.5rem;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        .result {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Healthy Horizon</h1>
+        <p>Empowering Mental Wellness, One Step at a Time</p>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="quiz.html">Quiz</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h2>Mental Health Quiz</h2>
+        <form id="quizForm">
+            <!-- Question 1 -->
+            <div class="question">
+                <p>1. Do you often feel sad, anxious, or empty?</p>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="1"> Rarely</label>
+                    <label><input type="radio" name="q1" value="2"> Sometimes</label>
+                    <label><input type="radio" name="q1" value="3"> Often</label>
+                    <label><input type="radio" name="q1" value="4"> Always</label>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question">
+                <p>2. Do you have trouble sleeping or sleeping too much?</p>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="1"> Rarely</label>
+                    <label><input type="radio" name="q2" value="2"> Sometimes</label>
+                    <label><input type="radio" name="q2" value="3"> Often</label>
+                    <label><input type="radio" name="q2" value="4"> Always</label>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question">
+                <p>3. Do you feel tired or lack energy most days?</p>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="1"> Rarely</label>
+                    <label><input type="radio" name="q3" value="2"> Sometimes</label>
+                    <label><input type="radio" name="q3" value="3"> Often</label>
+                    <label><input type="radio" name="q3" value="4"> Always</label>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question">
+                <p>4. Do you have difficulty concentrating or making decisions?</p>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="1"> Rarely</label>
+                    <label><input type="radio" name="q4" value="2"> Sometimes</label>
+                    <label><input type="radio" name="q4" value="3"> Often</label>
+                    <label><input type="radio" name="q4" value="4"> Always</label>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question">
+                <p>5. Do you feel hopeless or worthless?</p>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="1"> Rarely</label>
+                    <label><input type="radio" name="q5" value="2"> Sometimes</label>
+                    <label><input type="radio" name="q5" value="3"> Often</label>
+                    <label><input type="radio" name="q5" value="4"> Always</label>
+                </div>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="question">
+                <p>6. Have you lost interest in activities you once enjoyed?</p>
+                <div class="options">
+                    <label><input type="radio" name="q6" value="1"> Rarely</label>
+                    <label><input type="radio" name="q6" value="2"> Sometimes</label>
+                    <label><input type="radio" name="q6" value="3"> Often</label>
+                    <label><input type="radio" name="q6" value="4"> Always</label>
+                </div>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="question">
+                <p>7. Do you experience mood swings or irritability?</p>
+                <div class="options">
+                    <label><input type="radio" name="q7" value="1"> Rarely</label>
+                    <label><input type="radio" name="q7" value="2"> Sometimes</label>
+                    <label><input type="radio" name="q7" value="3"> Often</label>
+                    <label><input type="radio" name="q7" value="4"> Always</label>
+                </div>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="question">
+                <p>8. Have you had thoughts of self-harm or suicide?</p>
+                <div class="options">
+                    <label><input type="radio" name="q8" value="1"> Never</label>
+                    <label><input type="radio" name="q8" value="2"> Rarely</label>
+                    <label><input type="radio" name="q8" value="3"> Sometimes</label>
+                    <label><input type="radio" name="q8" value="4"> Often</label>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="button" onclick="calculateScore()">Submit</button>
+        </form>
+
+        <!-- Result Section -->
+        <div class="result" id="result"></div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2023 Healthy Horizon. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Quiz Calculation -->
+    <script>
+        function calculateScore() {
+            const questions = ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8"];
+            let totalScore = 0;
+
+            questions.forEach((question) => {
+                const selectedOption = document.querySelector(`input[name="${question}"]:checked`);
+                if (selectedOption) {
+                    totalScore += parseInt(selectedOption.value);
+                }
+            });
+
+            let resultText = "";
+            if (totalScore <= 12) {
+                resultText = "Your mental health seems to be in good shape. Keep taking care of yourself!";
+            } else if (totalScore <= 20) {
+                resultText = "You may be experiencing some mild mental health challenges. Consider seeking support.";
+            } else if (totalScore <= 28) {
+                resultText = "You may be experiencing moderate mental health challenges. It’s important to seek help.";
+            } else {
+                resultText = "You may be experiencing significant mental health challenges. Please seek professional help immediately.";
+            }
+
+            document.getElementById("result").innerText = resultText;
+        }
+    </script>
+</body>
+</html>
