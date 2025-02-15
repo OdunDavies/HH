@@ -31,46 +31,17 @@
             font-size: 2.5rem;
         }
 
-        
-    /* Navigation Styles */
-    nav {
+        nav {
         background: #fff;
         padding: 1rem 2rem;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
         position: sticky;
         top: 0;
         z-index: 1000;
         display: flex;
         justify-content: space-between;
         align-items: center;
-    }
-
-    .nav-links {
-        display: flex;
-        gap: 2rem;
-        align-items: center;
-    }
-
-    nav a {
-        color: #333;
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 1rem;
-        transition: all 0.3s ease;
-        padding: 0.5rem 1rem;
-        border-radius: 4px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-
-    nav a:hover {
-        color: #4CAF50;
-        background: rgba(76, 175, 80, 0.1);
-    }
-
-    nav a.active {
-        color: #4CAF50;
-        background: rgba(76, 175, 80, 0.1);
+        flex-wrap: wrap;
     }
 
     .logo {
@@ -80,11 +51,46 @@
         display: flex;
         align-items: center;
         gap: 0.5rem;
+        text-decoration: none;
     }
 
-    .logo img {
-        height: 40px;
-        width: auto;
+    .nav-links {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+        transition: all 0.3s ease;
+    }
+
+    .nav-links a {
+        color: #333;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        transition: all 0.2s ease;
+        position: relative;
+    }
+
+    .nav-links a:hover {
+        color: #4CAF50;
+        transform: translateY(-2px);
+    }
+
+    .nav-links a.active {
+        color: #4CAF50;
+    }
+
+    .nav-links a.active::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 5px;
+        height: 5px;
+        background: #4CAF50;
+        border-radius: 50%;
     }
 
     .auth-links {
@@ -96,11 +102,92 @@
     .auth-links a {
         background: #4CAF50;
         color: white !important;
-        padding: 0.5rem 1.5rem;
+        padding: 0.6rem 1.5rem;
+        border-radius: 25px;
+        transition: all 0.3s ease;
     }
 
     .auth-links a:hover {
         background: #45a049;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+    }
+
+    .hamburger {
+        display: none;
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: #4CAF50;
+        margin: 5px 0;
+        transition: all 0.3s ease;
+    }
+
+    /* ===== Mobile Styles ===== */
+    @media (max-width: 768px) {
+        nav {
+            padding: 1rem;
+        }
+
+        .hamburger {
+            display: block;
+        }
+
+        .nav-links {
+            width: 100%;
+            max-height: 0;
+            overflow: hidden;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 0;
+            order: 3;
+        }
+
+        .nav-links.active {
+            max-height: 500px;
+            padding: 1rem 0;
+        }
+
+        .auth-links {
+            margin-left: auto;
+            margin-right: 1rem;
+        }
+
+        .nav-links a {
+            width: 100%;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .nav-links a.active::after {
+            display: none;
+        }
+
+        .auth-links {
+            display: none;
+        }
+
+        .auth-links-mobile {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding: 1rem 0;
+            border-top: 1px solid #eee;
+        }
+    }
+
+    /* ===== Desktop Enhancements ===== */
+    @media (min-width: 769px) {
+        .nav-links {
+            flex: 1;
+            justify-content: center;
+            margin: 0 2rem;
+        }
     }
 
         h2 {
@@ -182,10 +269,16 @@
     <!-- Header Section -->
     <nav>
     <a href="index.html" class="logo">
-        <img src="logo.png" alt="Healthy Horizon Logo">
+        <img src="logo.png" alt="Healthy Horizon Logo" style="height: 40px;">
         Healthy Horizon
     </a>
     
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
     <div class="nav-links">
         <a href="home.html" class="active">Home</a>
         <a href="blog.html">Blog</a>
@@ -198,12 +291,11 @@
         <a href="signup.html">Sign Up</a>
     </div>
 </nav>
+
     <header>
         <h1>Healthy Horizon</h1>
         <p>Empowering Mental Wellness, One Step at a Time</p>
     </header>
-
-    <!-- Navigation Menu -->
 
     <!-- Main Content -->
     <div class="container">
@@ -261,6 +353,38 @@
 
     <!-- JavaScript for Form Submission -->
     <script>
+        // Mobile Menu Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const authLinks = document.querySelector('.auth-links');
+
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
+        
+        // Clone auth links for mobile
+        if (navLinks.classList.contains('active')) {
+            const mobileAuth = authLinks.cloneNode(true);
+            mobileAuth.classList.add('auth-links-mobile');
+            navLinks.appendChild(mobileAuth);
+        } else {
+            const mobileAuth = navLinks.querySelector('.auth-links-mobile');
+            if (mobileAuth) mobileAuth.remove();
+        }
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('nav')) {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+    });
+
+    // Hamburger animation
+    hamburger.addEventListener('click', function() {
+        this.classList.toggle('active');
+    });
         document.getElementById("contactForm").addEventListener("submit", function (event) {
             event.preventDefault();
             alert("Thank you for reaching out! We will get back to you soon.");
