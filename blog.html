@@ -32,10 +32,17 @@
         }
 
         nav {
-            background: #333;
-            padding: 1rem 0;
-            text-align: center;
-        }
+        background: #fff;
+        padding: 1rem 2rem;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
 
         nav a {
             color: #fff;
@@ -43,6 +50,13 @@
             margin: 0 1rem;
             font-size: 1.1rem;
         }
+
+        .nav-links {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+        transition: all 0.3s ease;
+    }
 
         nav a:hover {
             color: #4CAF50;
@@ -123,6 +137,20 @@
     </header>
 
     <!-- Navigation Menu -->
+
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="nav-links">
+        <a href="home.html" class="active">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
 
     <!-- Main Content -->
     <div class="container">
